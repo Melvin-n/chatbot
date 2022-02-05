@@ -1,0 +1,48 @@
+{"intents" : [
+    {
+    "tag": "greetings", 
+    "patterns": ["hello", "hi", "hey", "good morning", "whatsup", "greetings", "morning", "evening", "how's it going"],
+    "responses": ["Hello, do you need some help?", 
+        "Hi there! Please let me know if you need assistance", 
+        "How can I help you?"]   
+    },
+
+    {
+    "tag": "test drive",
+    "patterns": ["test drive", "test it out", "test", "try it", "take it for a drive"],
+    "responses": [
+        "You can test drive any of our cars before buying. We encourage you to test drive and carry out a thorough inspection before buying a car. To be able to test drive, you will need to bring your driver's license with you, you need to have a Restricted or Full license (or overseas equivalent) to take a test drive."
+    ]},
+
+    {
+    "tag": "bid",
+    "patterns": ["bid", "how can I bid", "how do I bid?", "can i bid?"],
+    "responses": ["Bidding is as easy as raising your hand, or bidders card in the air, but you do need to be registered to bid in a car auction."]
+    },
+
+    {
+    "tag": "payment",
+    "patterns": ["payment", "how do i pay?", "what forms of payment do you take?", "can I pay with credit card?",
+        "can I pay with cash?"],
+    "responses": ["Turners accepts most forms of payment, however, Turners cannot release your vehicle until the funds have cleared. You can make payment immediately using cash, EFTPOS, Visa, Mastercard."]
+    },
+
+    {
+    "tag": "selling car value",
+    "patterns": ["how much is my car worth?", "how much profit do I get?", "my profit?", "car value?",
+        "how to check my cars value"],
+    "responses": ["If you are wanting CashNow this depends on a number of factors, and we must appraise the vehicle in your local dealership before an offer can be made. "]
+    },
+
+    {
+    "tag": "thanks",
+    "patterns": ["thanks", "thank you", "appreciate it", "ta", "thanks alot"],
+    "responses": ["No problem. Is there anything else you need?", "You're welcome! Do you need help with anyhting else?"]
+    },
+
+    {
+    "tag": "goodbye",
+    "patterns": ["bye", "cya", "goodbye"],
+    "responses": ["Goodbye. Feel free to come back if you have further questions"]
+    } 
+]}
