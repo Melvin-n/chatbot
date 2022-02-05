@@ -4,7 +4,6 @@ import numpy as np
 import random
 
 
-
 import nltk
 from nltk.stem import WordNetLemmatizer
 
@@ -19,11 +18,14 @@ words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.model')
 
+
+# cleans up a sentence by lemmatize words in it
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
     return sentence_words
 
+# creates a numpy array out of words in sentence
 def bag_of_words(sentence):
     sentence_words = clean_up_sentence(sentence)
     bag = [0] * len(words)
@@ -33,6 +35,7 @@ def bag_of_words(sentence):
                 bag[i] = 1
     return np.array(bag)
 
+# predicts the response based on bag of words (numpy array results)
 def predict_class(sentence):
     bow = bag_of_words(sentence)
     res = model.predict(np.array([bow]))[0]
@@ -45,6 +48,7 @@ def predict_class(sentence):
         return_list.append({'intent' : classes[r[0]], 'probability': str(r[1])})
     return return_list
 
+# gets response based intents matched by tag
 def get_response(intents_list, intents_json):
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
