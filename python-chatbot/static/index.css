@@ -1,0 +1,26 @@
+#chat-container {
+    border: 2px solid black;
+    width: 35vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+}
+
+#messages-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-message {
+    text-align:right;
+    border: 1px solid gray;
+    color: blue;
+}
+
+.bot-message {
+    text-align: start;
+    border: 1px solid gray;
+    color: red;
+}

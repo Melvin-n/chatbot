@@ -44,5 +44,18 @@
     "tag": "goodbye",
     "patterns": ["bye", "cya", "goodbye"],
     "responses": ["Goodbye. Feel free to come back if you have further questions"]
-    } 
+    },
+    
+    {
+    "tag": "how are you",
+    "patterns": ["how are you", "are you okay?", "do you have feelings"],
+    "responses": ["I'm doing great thanks for asking!", "Just another day of work" ]
+    },
+
+    {
+    "tag": "borrow",
+    "patterns": ["Do you lend money?", "can I get a loan", "can i borrow money", "what if i don't have money"],
+    "responses": ["Getting personal finance through Turners is quick and easy. You can get finance at any of our branches, or through this website. Apply for Personal Finance now.  Or give us a call on 0800 887 637 if you have any questions."]
+    }
 ]}
+    

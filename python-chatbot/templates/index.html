@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='index.css') }}"" >
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chat-container">
+        <ul id='messages-list' reversed>
+            {% for message in message_history %}
+            <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+        <form id="message-form" method="POST" action='/' enctype="application/json">
+            <input id="message" type="text" name="message">
+            <input id='send-message' type="submit" value="Send">
+        </form>
+    </div>
+
+
+    <script type="text/javascript">
+        let sendMessage = document.getElementById('send-message')
+        let message = document.getElementById('message')
+        let chatContainer = document.getElementById('chat-container')
+
+
+        let messages = []
+        let messagesList = document.getElementById('messages-list')
+
+        sendMessage.addEventListener('click', async (e) => {
+            e.preventDefault()
+            messagesList.innerHTML = ''
+            console.log(message.value)
+            messages.push(`User: ${message.value}`)
+            await fetch('http://127.0.0.1:8080/', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({message: message.value})
+            })
+            .then(res => res.json())
+            .then(data => {
+                messages.push(`Bot: ${data}`)
+                for (let message of messages) {
+                    if (message[0] == 'U') {
+                        messagesList.innerHTML += `<li class='user-message'>${message}</li>`
+                    } else {
+                        messagesList.innerHTML += `<li class='bot-message'>${message}</li>`
+                    }
+                    
+                }
+                 
+            })
+
+            .catch(err => console.log(err))
+            console.log(messages)
+        })
+
+        
+
+        // document.addEventListener("chatContainer", function(event) { 
+        //     var scrollpos = localStorage.getItem('scrollpos');
+        //     if (scrollpos) chatContainer.scrollTo(0, scrollpos);
+        // });
+        
+
+        // chatContainer.onbeforeunload = function(e) {
+        //     localStorage.setItem('scrollpos', chatContainer.scrollY);
+        // };
+    </script>
+</body>
+</html>

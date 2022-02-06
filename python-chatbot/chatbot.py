@@ -10,6 +10,8 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow import keras
 from keras.models import load_model
 
+
+
 lemmatizer = WordNetLemmatizer()
 
 intents = json.loads(open('intents.json').read())
@@ -60,8 +62,3 @@ def get_response(intents_list, intents_json):
 
 print ('Bot is running')
 
-while True:
-    message = input('')
-    ints = predict_class(message)
-    res = get_response(ints, intents)
-    print(res)
