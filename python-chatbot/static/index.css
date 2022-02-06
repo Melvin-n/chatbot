@@ -1,3 +1,14 @@
+:root {
+    --blue-theme: #0073cf;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
 #chat-container {
     border: 2px solid black;
     width: 35vw;
@@ -5,6 +16,10 @@
     display: flex;
     flex-direction: column;
     overflow-x: scroll;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: white;;
 }
 
 #messages-list {
@@ -16,7 +31,7 @@
 .user-message {
     text-align:right;
     border: 1px solid gray;
-    color: blue;
+    color: var(--blue-theme);
 }
 
 .bot-message {
@@ -24,3 +39,86 @@
     border: 1px solid gray;
     color: red;
 }
+
+#top-navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+#top-navbar-items {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.top-navbar-item {
+    font-size: 1.2vw;
+}
+
+.top-navbar-item a {
+    text-decoration: none;
+    color: var(--blue-theme);
+    transition: 1s;
+}
+
+.top-navbar-item a:hover {
+    color: black;
+    transition: 1s;
+}
+
+#header-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5vw;
+}
+
+#header-links {
+    display: flex;
+    flex-direction: row;
+    gap:5vw;
+}
+
+
+#main-navbar-items {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--blue-theme);
+    width: 100vw;
+    height: 8vh;
+    color: white;
+    list-style-type: none;
+    align-items: end;
+}
+
+.main-navbar-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5vw;
+    align-self: center;
+    height: 100%;
+    align-self: center;
+    transition: 1s;
+}
+
+.main-navbar-item:hover {
+    background-color:rgb(14, 14, 105);
+    transition: 1s;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+#chat-modal {
+    position:fixed;
+    bottom: 0;
+    right: 0;
+}
+

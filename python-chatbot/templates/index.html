@@ -5,12 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="{{ url_for('static', filename='index.css') }}"" >
+    <link rel="stylesheet"  href="{{ url_for('static', filename='index.css') }}" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <title>Chatbot</title>
 </head>
 <body>
-    <h1>Chatbot</h1>
-    <div id="chat-container">
+    <navbar id="top-navbar">
+        <ul id='top-navbar-items'>
+            <li class="top-navbar-item"><a href='/'> Cars</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Trucks & Machinery</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Damaged & EOL</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Boats & Marine</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Motorcycles & Scooters</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>General Goods</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Buses, Caravans & Motorhomes</a></li>
+        </ul>
+    </navbar>
+
+    <header id="header-bar">
+        <img id='logo-image' src="./static/logo.png" alt="TURNERS CARS">
+        <div id="header-links">
+            <h4>LOGIN or REGISTER</h4>
+            <h4>0800 887 637</h4>
+            <h4>FIND US</h4>
+        </div>
+    </header>
+
+    <navbar id="main-navbar">
+        <ul id="main-navbar-items">
+            <li class="main-navbar-item">FIND A CAR</li>
+            <li class="main-navbar-item">HOW TO BUY</li>
+            <li class="main-navbar-item">SELL YOUR CAR</li>
+            <li class="main-navbar-item">FINANCE & INSURANCE</li>
+            <li class="main-navbar-item">CAREERS</li>
+            <li class="main-navbar-item">AUCTIONS & EVENTS</li>
+            <li class="main-navbar-item">SERVICES & INFORMATION</li>
+        </ul>
+    </navbar>
+
+    <div id="summary">
+        <h2>1000's of Quality Cars for Sale</h2>
+        <p>Turners Cars is the largest used car network in New Zealand with 19 car dealer locations nationwide. 
+            With a huge range of around 3,000 cars for sale (and 1,500 being made ready for sale at any one time) 
+            there is truly something for everyone. We’ve been helping Kiwis buy and sell used cars for over 50 years.
+             And if you want car finance or car insurance, we can sort that out for you as well.
+        </p>
+    </div>
+
+
+
+    <button id="chat-modal" class="show">Ask for help</button>
+    <div id="chat-container" class="hide">
+        <navbar id="chat-nav">
+            <button id="minimize-chat">Minimize</button>
+        </navbar>
         <ul id='messages-list' reversed>
             {% for message in message_history %}
             <li>{{message}}</li>
@@ -24,6 +80,8 @@
 
 
     <script type="text/javascript">
+
+        // form submission and message response handling
         let sendMessage = document.getElementById('send-message')
         let message = document.getElementById('message')
         let chatContainer = document.getElementById('chat-container')
@@ -62,17 +120,28 @@
             console.log(messages)
         })
 
+        //chat display options
+        let chatModal = document.getElementById('chat-modal')
+        let minimizeChat = document.getElementById('minimize-chat')
+
+        chatModal.addEventListener('click', () => {
+            chatContainer.classList.add('show')
+            chatContainer.classList.remove('hide')
+        })
+
+        minimizeChat.addEventListener('click', () => {
+            chatContainer.classList.add('hide')
+            chatContainer.classList.remove('show')
+
+        })
+
+
+
+
+
         
 
-        // document.addEventListener("chatContainer", function(event) { 
-        //     var scrollpos = localStorage.getItem('scrollpos');
-        //     if (scrollpos) chatContainer.scrollTo(0, scrollpos);
-        // });
         
-
-        // chatContainer.onbeforeunload = function(e) {
-        //     localStorage.setItem('scrollpos', chatContainer.scrollY);
-        // };
     </script>
 </body>
 </html>
