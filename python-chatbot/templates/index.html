@@ -62,20 +62,22 @@
 
 
 
-    <button id="chat-modal" class="show">Ask for help</button>
+    <button id="chat-modal" class="show">Ask for help (1)</button>
     <div id="chat-container" class="hide">
-        <navbar id="chat-nav">
-            <button id="minimize-chat">Minimize</button>
-        </navbar>
-        <ul id='messages-list' reversed>
-            {% for message in message_history %}
-            <li>{{message}}</li>
-            {% endfor %}
-        </ul>
-        <form id="message-form" method="POST" action='/' enctype="application/json">
-            <input id="message" type="text" name="message">
-            <input id='send-message' type="submit" value="Send">
-        </form>
+        <button id="chat-minimize" ><p>TurnersBot</p> <p>_</p></button>
+        <div id="chat-box" >           
+            <ul id='messages-list' reversed>
+                <li class='bot-message'>TurnersBot: Welcome to TurnersCars! Do you need any help?</li>
+                {% for message in message_history %}
+                <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+            <form id="message-form" method="POST" action='/' enctype="application/json">
+                <input id="message-input" type="text" name="message" placeholder="Type a message..."> 
+                <input id='send-message' type="submit" value="Send">
+            </form>
+    </div>
+
     </div>
 
 
@@ -83,18 +85,21 @@
 
         // form submission and message response handling
         let sendMessage = document.getElementById('send-message')
-        let message = document.getElementById('message')
+        let message = document.getElementById('message-input')
         let chatContainer = document.getElementById('chat-container')
 
 
-        let messages = []
+        let messages = ['TurnersBot: Welcome to TurnersCars! Do you need any help?']
         let messagesList = document.getElementById('messages-list')
+
+        
 
         sendMessage.addEventListener('click', async (e) => {
             e.preventDefault()
-            messagesList.innerHTML = ''
+            // messagesList.innerHTML = ''
             console.log(message.value)
-            messages.push(`User: ${message.value}`)
+            messages.push(`${message.value}`)
+            messagesList.innerHTML += `<li class='user-message'>${message.value}</li>`
             await fetch('http://127.0.0.1:8080/', {
                 method: 'POST',
                 headers: {
@@ -104,15 +109,14 @@
             })
             .then(res => res.json())
             .then(data => {
-                messages.push(`Bot: ${data}`)
-                for (let message of messages) {
-                    if (message[0] == 'U') {
-                        messagesList.innerHTML += `<li class='user-message'>${message}</li>`
-                    } else {
-                        messagesList.innerHTML += `<li class='bot-message'>${message}</li>`
-                    }
-                    
-                }
+                messages.push(`TurnersBot: ${data}`)
+                setTimeout(() => {                    
+                    messagesList.innerHTML += `<li class='bot-message'>TurnersBot: ${data}</li>`
+                    messagesList.scrollTop = messagesList.scrollHeight
+                }, 500)
+                
+                message.value = ''
+                messagesList.scrollTop = messagesList.scrollHeight
                  
             })
 
@@ -122,7 +126,7 @@
 
         //chat display options
         let chatModal = document.getElementById('chat-modal')
-        let minimizeChat = document.getElementById('minimize-chat')
+        let minimizeChat = document.getElementById('chat-minimize')
 
         chatModal.addEventListener('click', () => {
             chatContainer.classList.add('show')
