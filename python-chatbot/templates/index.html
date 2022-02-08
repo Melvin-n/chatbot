@@ -67,13 +67,13 @@
         <button id="chat-minimize" ><p>TurnersBot</p> <p>_</p></button>
         <div id="chat-box" >           
             <ul id='messages-list' reversed>
-                <li class='bot-message'>TurnersBot: Welcome to TurnersCars! Do you need any help?</li>
+                <li class='bot-message box arrow-left'><strong>TurnersBot:</strong> Welcome to TurnersCars! Do you need any help?</li>
                 {% for message in message_history %}
                 <li>{{message}}</li>
                 {% endfor %}
             </ul>
             <form id="message-form" method="POST" action='/' enctype="application/json">
-                <input id="message-input" type="text" name="message" placeholder="Type a message..."> 
+                <input id="message-input" type="text" name="message" placeholder="Type a message..." autocomplete="off"> 
                 <input id='send-message' type="submit" value="Send">
             </form>
     </div>
@@ -89,17 +89,17 @@
         let chatContainer = document.getElementById('chat-container')
 
 
-        let messages = ['TurnersBot: Welcome to TurnersCars! Do you need any help?']
+        let messages = []
         let messagesList = document.getElementById('messages-list')
 
-        
+        // messagesList.innerHTML += `<li class='user-message box arrow-left'>TurnersBot:<br> Welcome to TurnersCars! Do you need any help?</li>`
 
         sendMessage.addEventListener('click', async (e) => {
             e.preventDefault()
             // messagesList.innerHTML = ''
             console.log(message.value)
             messages.push(`${message.value}`)
-            messagesList.innerHTML += `<li class='user-message'>${message.value}</li>`
+            messagesList.innerHTML += `<li class='user-message box arrow-right'>${message.value}</li>`
             await fetch('http://127.0.0.1:8080/', {
                 method: 'POST',
                 headers: {
@@ -111,9 +111,9 @@
             .then(data => {
                 messages.push(`TurnersBot: ${data}`)
                 setTimeout(() => {                    
-                    messagesList.innerHTML += `<li class='bot-message'>TurnersBot: ${data}</li>`
+                    messagesList.innerHTML += `<li class='bot-message box arrow-left'><strong>TurnersBot:</strong> ${data}</li>`
                     messagesList.scrollTop = messagesList.scrollHeight
-                }, 500)
+                }, 350)
                 
                 message.value = ''
                 messagesList.scrollTop = messagesList.scrollHeight
@@ -138,12 +138,6 @@
             chatContainer.classList.remove('show')
 
         })
-
-
-
-
-
-        
 
         
     </script>
