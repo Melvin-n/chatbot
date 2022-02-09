@@ -62,15 +62,12 @@
 
 
 
-    <button id="chat-modal" class="show">Ask for help (1)</button>
+    <button id="chat-modal" class="show">Ask for help</button>
     <div id="chat-container" class="hide">
         <button id="chat-minimize" ><p>TurnersBot</p> <p>_</p></button>
         <div id="chat-box" >           
             <ul id='messages-list' reversed>
-                <li class='bot-message box arrow-left'><strong>TurnersBot:</strong> Welcome to TurnersCars! Do you need any help?</li>
-                {% for message in message_history %}
-                <li>{{message}}</li>
-                {% endfor %}
+                <li class='bot-message box arrow-left'> Welcome to TurnersCars! Do you need any help?</li>
             </ul>
             <form id="message-form" method="POST" action='/' enctype="application/json">
                 <input id="message-input" type="text" name="message" placeholder="Type a message..." autocomplete="off"> 
@@ -111,7 +108,7 @@
             .then(data => {
                 messages.push(`TurnersBot: ${data}`)
                 setTimeout(() => {                    
-                    messagesList.innerHTML += `<li class='bot-message box arrow-left'><strong>TurnersBot:</strong> ${data}</li>`
+                    messagesList.innerHTML += `<li class='bot-message box arrow-left'> ${data}</li>`
                     messagesList.scrollTop = messagesList.scrollHeight
                 }, 350)
                 

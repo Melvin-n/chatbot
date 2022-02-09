@@ -98,6 +98,10 @@ body {
     height: 65vh;
     overflow-y: scroll;
     scroll-padding-bottom: 50vh;
+    display: flex;
+    flex-direction: column;
+    background-position: 100%;
+    align-items: flex-end;
 }
 
 #send-message {
@@ -117,25 +121,33 @@ body {
 }
 
 .user-message {
-    text-align:right;
     color: black;
+    display: flex;
     padding: 1vw;
     border-radius: 25px;
     background-color: var(--light-grey);
+    max-width: 80%; 
+    width: max-content; 
+    overflow-wrap: break-word;
+    align-self: right;
+    justify-self: right;
+    text-align: right;
     position: relative;
-    width: min-content;
-    flex-wrap: nowrap; 
+    
 }
 
 .bot-message {
-    text-align: start;
+    text-align: left;
     color: var(--blue-theme);
     border-radius: 25px;
-    position:relative;
     background-color: var(--light-grey);
-
+    display: flex;
+    justify-self: left;
+    align-self: left;
+    width: 80%;
+    overflow-wrap: break-word;
+    position: relative;
 }
-
 
 .box {  
     padding: 20px;
