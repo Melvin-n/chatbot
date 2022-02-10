@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  href="{{ url_for('static', filename='index.css') }}" >
+    <link rel="stylesheet" href="../static/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    
     <title>Chatbot</title>
 </head>
 <body>
@@ -31,7 +33,7 @@
     </navbar>
 
     <header id="header-bar">
-        <img id='logo-image' src="./static/logo.png" alt="TURNERS CARS">
+        <img id='logo-image' src="../static/logo.png" alt="TURNERS CARS">
         <div id="header-links">
             <h4>LOGIN or REGISTER</h4>
             <h4>0800 887 637</h4>
@@ -50,16 +52,40 @@
             <li class="main-navbar-item">SERVICES & INFORMATION</li>
         </ul>
     </navbar>
+    <div id="summary-search-homepage">
+        <div id="summary">
+            <img id="summary-image" src="../static/ferrari.jpg" alt="">
+            <h2 id="summary-text-header" class="summary-text">1000's of Quality Cars for Sale</h2>
+            <p  id="summary-text-details" class="summary-text">Turners Cars is the largest used car network in New Zealand with 19 car dealer locations nationwide. 
+                With a huge range of around 3,000 cars for sale (and 1,500 being made ready for sale at any one time) 
+                there is truly something for everyone. We’ve been helping Kiwis buy and sell used cars for over 50 years.
+                And if you want car finance or car insurance, we can sort that out for you as well.
+            </p>
+        </div>
+        
+        <div id="find-form-container">
+            <h3 id="form-title">Find a car!</h3>
+            <form id="find-form">
+                <label for="customsearch">Custom Search</label>
+                <input type="text" name="customsearch">
+                <label for="make-dropdown">Make</label>
+                <select id="make-dropdown" name="make-dropdown">
+                    <option value="bmw">BMW</option>
+                    <option value="lamborghini">Lamborghini</option>
+                    <option value="ferrari">Ferrari</option>
+                    <option value="tesla">Tesla</option>
+                    <option value="bugatti">Bugatti</option>
+                    <option value="rolls-royce">Rolls Royce</option>
+                </select>
+                <label for="model-dropdown">Model</label>
+                <select id="model-option" name="model-dropdown">
+                    <option value="all">All</option>
+                </select>
+                <input type="submit" value="Search">
 
-    <div id="summary">
-        <h2>1000's of Quality Cars for Sale</h2>
-        <p>Turners Cars is the largest used car network in New Zealand with 19 car dealer locations nationwide. 
-            With a huge range of around 3,000 cars for sale (and 1,500 being made ready for sale at any one time) 
-            there is truly something for everyone. We’ve been helping Kiwis buy and sell used cars for over 50 years.
-             And if you want car finance or car insurance, we can sort that out for you as well.
-        </p>
+            </form>
+        </div>
     </div>
-
 
 
     <button id="chat-modal" class="show">Ask for help</button>
@@ -89,11 +115,10 @@
         let messages = []
         let messagesList = document.getElementById('messages-list')
 
-        // messagesList.innerHTML += `<li class='user-message box arrow-left'>TurnersBot:<br> Welcome to TurnersCars! Do you need any help?</li>`
-
+        //upon sending a message, API is called with fetch to return message response
+        //settimeout is used to mimic messaging a real person
         sendMessage.addEventListener('click', async (e) => {
             e.preventDefault()
-            // messagesList.innerHTML = ''
             console.log(message.value)
             messages.push(`${message.value}`)
             messagesList.innerHTML += `<li class='user-message box arrow-right'>${message.value}</li>`
@@ -105,6 +130,7 @@
                 body: JSON.stringify({message: message.value})
             })
             .then(res => res.json())
+            //messages are added to the DOM
             .then(data => {
                 messages.push(`TurnersBot: ${data}`)
                 setTimeout(() => {                    
