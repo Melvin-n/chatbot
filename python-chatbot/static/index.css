@@ -2,6 +2,7 @@
     --blue-theme: #0073cf;
     --dark-blue-theme: rgb(14, 14, 105);
     --light-blue-theme: #348bd1;
+    --message-blue-theme: #0c6ab8;
     --light-grey: rgb(212, 211, 211);
 }
 
@@ -35,7 +36,7 @@ body {
 
 #chat-minimize {
     width: 100%;
-    background-color: var(--blue-theme);
+    background-color: var(--dark-blue-theme);
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
     border: none;
@@ -63,7 +64,7 @@ body {
     bottom: 0;
     right: 0;
     width: 25vw;
-    background-color: var(--blue-theme);
+    background-color: var(--dark-blue-theme);
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
     border: none;
@@ -106,7 +107,7 @@ body {
 
 #send-message {
     border: 1px solid white;
-    background-color: var(--blue-theme);
+    background-color: var(--dark-blue-theme);
     border-radius: 15px;
     color: white;
     width: 6vw;
@@ -116,7 +117,7 @@ body {
 }
 
 #send-message:hover {
-    background-color: var(--light-blue-theme);
+    background-color: var(--blue-theme);
     border: 1px solid grey;
 }
 
@@ -138,7 +139,7 @@ body {
 
 .bot-message {
     text-align: left;
-    color: var(--blue-theme);
+    color: var(--message-blue-theme);
     border-radius: 25px;
     background-color: var(--light-grey);
     display: flex;
@@ -232,7 +233,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 1.5vw;
+    padding: 0 1vw;
     align-self: center;
     height: 100%;
     align-self: center;

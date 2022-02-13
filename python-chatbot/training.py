@@ -78,16 +78,24 @@ train_y = list(training[:, 1])
 
 # neural network
 
+# sequential model, appropriate for a basic stack of layers with one input and one output each
 model = Sequential()
+
+# dense layer: commonly used layer in which neuron is connect to all neurons in preceding layer
 model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
+
+#dropout helps prevent overfitting by randomly drop neurons in each iteration
+# overfitting: when ai gets very good at responding to training data but not so good at recognising new patterns
 model.add(Dropout(0.5))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation='softmax'))
-
+ # sgd = method for finding the lowest loss functions (?)
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+# compiles metrics
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
+# saves data after number of epochs(iterations)
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 model.save('chatbot_model.model', hist)
 
