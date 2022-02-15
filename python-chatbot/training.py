@@ -97,6 +97,6 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 # saves data after number of epochs(iterations)
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.model', hist)
+model.save('car_bike_model.h5', hist)
 
 print('Done')
