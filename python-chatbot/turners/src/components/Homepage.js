@@ -1,21 +1,18 @@
 import React from 'react'
 import '../css/homepage.css'
-import {Link} from 'react-router-dom'
-
 
 export default function Homepage() {
   return (
     <div>
       <div id='topnav'>
-          {/* <ul id='contact-details-nav'>
+          <ul id='contact-details-nav'>
             <li className='contact-details-nav-item'>Phone: 0800 887 637</li>
             <li className='contact-details-nav-item'>Email: Turners@turners.com</li>
-          </ul> */}
+          </ul>
           <ul id='page-links-nav'>
               <li className='page-links-nav-item'>Find a car</li>
-              <li className='page-links-nav-item'><a href='/sell'>Sell a car</a></li>
+              <li className='page-links-nav-item'>Sell a car</li>
               <li className='page-links-nav-item'>Live auctions</li>
-              <li className='page-links-nav-item' >Contact us</li>
           </ul>
       </div>
 
@@ -29,7 +26,8 @@ export default function Homepage() {
         </div>
         <div id='right-side-main'>
           <form id="find-form">
-            <h2 id='form-title'> Find a Car!</h2>
+              <label for="customsearch">Custom Search</label>
+              <input type="text" name="customsearch" />
               <label for="make-dropdown">Make</label>
               <select id="make-dropdown" name="make-dropdown">
                   <option value="bmw">BMW</option>
