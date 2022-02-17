@@ -20,6 +20,8 @@ message_history = []
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'GET':
+        return 'Turners API'
     if request.method == 'POST':
         print(request.json)
         message = request.json['message']
