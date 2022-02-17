@@ -31,6 +31,7 @@ def index():
         message_history.append(f'Bot: {res}')
         return jsonify(res)
 
+
 def get_model():
     global model
     model = load_model('models/car_suv_model.h5')

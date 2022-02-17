@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:turners/src/css/homepage.css
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 :root {
     --blue-theme: #0073cf;
     --dark-blue-theme: rgb(14, 14, 105);
@@ -7,11 +11,20 @@
 }
 
 body {
+<<<<<<< HEAD
     background-image: url('../../public/background-car3.jpg');
+=======
+    background-image: url('../public/background-car3.jpg');
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
     background-size: cover;
 }
 
 
+<<<<<<< HEAD
+=======
+========
+>>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a:python-chatbot/turners/src/css/homepage.css
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 #topnav {
     display: flex;
     flex-direction: row;
@@ -24,14 +37,18 @@ body {
     flex-direction: row;
     list-style-type: none;
     gap: 6vw;
+<<<<<<< HEAD
     width: 50%;
     font-size: 1.5vw;
+=======
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 }
 
 #page-links-nav {
     display: flex;
     flex-direction: row;
     list-style-type: none;
+<<<<<<< HEAD
     justify-content: space-around;
     width: 100%;
     margin: 0;
@@ -59,48 +76,71 @@ body {
 li a {
     text-decoration: none;
     color: inherit;
+=======
+    gap: 6vw;
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 }
 
 #homepage-main {
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
     color: rgb(241, 241, 241);
     padding: 0 1.5vw;
     margin-top: 0;
+=======
+    color: white;
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 }
 
 #right-side-main {
     width: 50%;
+<<<<<<< HEAD
     margin-top: 0;
     padding-top: 0;
+=======
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 }
 
 #homepage-title {
     font-size: 10vw;
+<<<<<<< HEAD
     margin-top: 1.5vh;
     text-decoration: underline;
     text-decoration-color: var(--light-blue-theme);
     text-decoration-thickness: 5px;
+=======
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 }
 
 #left-side-main {
     width: 50%;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     margin-top: 0;
     padding-top: 0;
+=======
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 }
 
 
 #find-form {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     align-items: center;
     padding: 0 2vh;
     height: 100%;
     margin-top: 0;
     padding-top: 5.5vh;
     text-align: center;
+=======
+    justify-content: center;
+    align-self: center;
+    padding: 2vh;
+    height: 100%;
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 
 }
 
@@ -115,15 +155,19 @@ li a {
     margin-bottom: 1vh;
     font-size: 3vw;
     font-weight: bold;
+<<<<<<< HEAD
     text-align: center;
     text-decoration: underline;
     text-decoration-color: var(--light-blue-theme);
     text-decoration-thickness: 2px;
+=======
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
 
 }
 
 #find-form input, #find-form select {
     width: 30vw;
+<<<<<<< HEAD
     height: 8vh;
     font-size: 1.8vw;
     padding: 0;
@@ -136,3 +180,11 @@ li a {
     color: white;
 }
 
+=======
+    height: 5vh;
+    font-size: 1.5vw;
+    padding: 0;
+    margin-bottom: 4vh;
+    
+}
+>>>>>>> c347c2dc0f78034d62e998a1956c35568b47b26a
