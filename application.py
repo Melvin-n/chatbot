@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, Response, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import base64
 from pyexpat import model
@@ -7,9 +7,9 @@ import io
 from PIL import Image
 import tensorflow as tf
 from tensorflow import keras
-from keras.models import Sequential, load_model
 from keras.models import load_model
-from keras.preprocessing.image import ImageDataGenerator, img_to_array
+from keras.models import load_model
+from keras.preprocessing.image import  img_to_array
 
 
 import chatbot
