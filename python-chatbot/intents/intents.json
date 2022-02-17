@@ -1,0 +1,129 @@
+{"intents" : [
+    {
+    "tag": "greetings", 
+    "patterns": ["hello", "hi", "hey", "good morning", "whatsup", "greetings", "morning", "evening", "how's it going"],
+    "responses": ["Hello, do you need some help?", 
+        "Hi there! Please let me know if you need assistance"]   
+    },
+
+    {
+    "tag": "test drive",
+    "patterns": ["test drive", "test it out", "test", "try it", "take it for a drive"],
+    "responses": [
+        "You can test drive any of our cars before buying. We encourage you to test drive and carry out a thorough inspection before buying a car. To be able to test drive, you will need to bring your driver's license with you, you need to have a Restricted or Full license (or overseas equivalent) to take a test drive."
+    ]},
+
+    {
+    "tag": "yes",
+    "patterns": ["yes", "yup", "ok"],
+    "responses": ["What else can I do for you?", "How can I help?"]
+    },
+
+    {
+    "tag": "no",
+    "patterns": ["no"],
+    "responses": ["Feel free to message if you have any other questions."]
+    },
+
+    {
+    "tag": "payment",
+    "patterns": ["payment", "how do i pay?", "what forms of payment do you take?", "can I pay with credit card?",
+        "can I pay with cash?"],
+    "responses": ["Turners accepts most forms of payment, however, Turners cannot release your vehicle until the funds have cleared. You can make payment immediately using cash, EFTPOS, Visa, Mastercard."]
+    },
+
+    {
+    "tag": "selling car value",
+    "patterns": ["how much is my car worth?", "how much profit do I get?", "my profit?", "car value?",
+        "how to check my cars value"],
+    "responses": ["If you are wanting CashNow this depends on a number of factors, and we must appraise the vehicle in your local dealership before an offer can be made. "]
+    },
+
+    {
+    "tag": "thanks",
+    "patterns": ["thanks", "thank you", "appreciate it", "ta", "thanks alot"],
+    "responses": ["No problem. Is there anything else you need?", "You're welcome! Do you need help with anyhting else?"]
+    },
+
+    {
+    "tag": "goodbye",
+    "patterns": ["bye", "cya", "goodbye"],
+    "responses": ["Goodbye. Feel free to come back if you have further questions"]
+    },
+    
+    {
+    "tag": "how are you",
+    "patterns": ["how are you", "are you okay?", "do you have feelings"],
+    "responses": ["I'm doing great thanks for asking!", "Just another day of work" ]
+    },
+
+    {
+    "tag": "borrow",
+    "patterns": ["Do you lend money?", "can I get a loan", "can i borrow money", "what if i don't have money", "Do you offer money to loan?", "how do i apply for finance", "can i get finance"],
+    "responses": ["Getting personal finance through Turners is quick and easy.\n You can get finance at any of our branches, or through this website. Apply for Personal Finance now.  Or give us a call on 0800 887 637 if you have any questions."]
+    },
+
+    {
+    "tag": "online bids",
+    "patterns": ["How Can I bid on online auctions?", "how to bid?", "bidding in online auctions"],
+    "responses": ["If you're set up to bid on Turners Live, you're already set up to bid on these auctions. Else, Log into your Turners website account, Go to MY ACCOUNT ,Click ACCOUNT DETAILS - Edit, Go to the ACCOUNT TYPE section at the bottom of the page and tick the box that says BID ONLINE. Or you will see a red 'BID ONLINE' button on the top right hand side, Enter your credit card details. If you are a licensed dealer and can't see the 'BID ONLINE' button, Go to the ACCOUNT TYPE section at the bottom of the page and ensure the correct account type is selected, fill in the additional details and we will send a General Agreement to Trade form."]
+    },
+
+    {
+    "tag": "trademe",
+    "patterns": ["how can I bid using trademe", "can i use trademe", "how can i bid on turners trademe"],
+    "responses": ["Go to MY ACCOUNT, and select ACCOUNT DETAILS – Edit. You will then see the LINK MY TRADE ME ACCOUNT button. Alternatively, if you click on the BID or BUY NOW button in an online auction you will be prompted to link your account."]
+    },
+
+    {
+    "tag": "no trademe account",
+    "patterns": ["what if I don't have a trademe account", "no trademe account", "not on trademe", "dont have trademe"],
+    "responses": ["If you don't have a Trade Me account and would like to bid on Turners Trade Me Auctions you will need to create one. Then link your Turners account to Trade Me. You can still search for and view all goods on www.turners.co.nz without linking to Trade Me."]
+    },
+
+    {
+    "tag": "online and live auction difference",
+    "patterns": ["What's the difference between online auctions and Turners live?", "are online and live auctions different?", "are there online and live auctions available?"],
+    "responses": ["Turners Live allows you to bid on live auctions that are taking place physically and are run by an auctioneer in front of customers. Online auctions are only held online, there is no physical auction or auctioneer. The customers are all online."]
+    },
+
+    {
+    "tag": "autibid",
+    "patterns": ["what are autobids?", "whats an autobid?"],
+    "responses": ["Autobid will place bids at the next minimum amount up to your maximum, if you are outbid. If the reserve has not been met and your autobid exceeds the reserve, a bid will be placed at the reserve amount."]
+    },
+
+    {
+    "tag": "screen name",
+    "patterns": ["whats a screen name", "whats a screenname", "do i have a screen name?", "how to set a screenname"],
+    "responses": ["Your screen name is dispayed next to your bid. Turners Trade Me Auctions: Your screen name will be your Trade Me user name, as these auctions are held in partnership with Trade Me. Turners Online Auctions: If you don't have a screen name your Turners website account name will be displayed. You can set your screen name here. For Damaged and End of Life Cars the identity of the other bidders is kept completely private."]
+    },
+
+    {
+    "tag": "buyers fee",
+    "patterns": ["are there any buyers fees?", "do buyers have to pay a fee?", "is there additional charge for buyers?"],
+    "responses": ["Turners Trade Me online auctions: There are no additional buyers fees. What you bid, is what you pay. Turners online auctions: Standard buyers fees will apply on top of your bid price. To view our buyers fees, click here."]
+    },
+
+    {
+    "tag": "shipping",
+    "patterns": ["what shipping options are there?", "do you ship to", "can you ship cars?", "is shipping an option"],
+    "responses": "Goods bought via online auctions will be available for pick up and/ or shipping at the buyers expense. Talk to your local branch about your shipping options."
+    },
+
+    {
+    "tag": "question",
+    "patterns": ["I have a question about a product", "how can i ask about a specific product", "i want to ask about a car", "where do i ask questions about a car i want to buy"],
+    "responses": ["Please use the QUESTIONS & ANSWERS tab at the bottom of the listing. You need to be logged into your account to ask a question."]
+    },
+
+    {
+    "tag": "trademe email",
+    "patterns": ["why am i getting emails for trademe", "trademe keeps emailing me", "can i remove trademes emails"],
+    "responses": ["Because our Turners Trade Me Auctions are held in partnership with Trade Me, you will receive emails from them depending on your Trade Me notification settings. To check your Trade Me notification settings: 1)      Go to www.trademe.co.nz     2)      Login in    3)      Go to 'My Trade Me'    4)      Click on 'view my Trade Me'  5)      Under 'More options' click on 'Email options'"]
+    }
+
+
+
+]}
+    
