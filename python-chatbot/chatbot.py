@@ -14,11 +14,11 @@ from keras.models import load_model
 
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open('intents.json').read())
+intents = json.loads(open('intents/intents.json').read())
 
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('chatbot_model.model')
+words = pickle.load(open('pickle/words.pkl', 'rb'))
+classes = pickle.load(open('pickle/classes.pkl', 'rb'))
+model = load_model('model/chatbot_model.model')
 
 
 # cleans up a sentence by lemmatize words in it

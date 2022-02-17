@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='index.css') }}" >
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    
+    <title>Chatbot</title>
+</head>
+<body>
+    <navbar id="top-navbar">
+        <ul id='top-navbar-items'>
+            <li class="top-navbar-item"><a href='/'> Cars</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Trucks & Machinery</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Damaged & EOL</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Boats & Marine</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Motorcycles & Scooters</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>General Goods</a></li>
+            |
+            <li class="top-navbar-item"><a href='/'>Buses, Caravans & Motorhomes</a></li>
+        </ul>
+    </navbar>
+
+    <header id="header-bar">
+        <img id='logo-image' src="../static/logo.png" alt="TURNERS CARS">
+        <div id="header-links">
+            <h4>LOGIN or REGISTER</h4>
+            <h4>0800 887 637</h4>
+            <h4>FIND US</h4>
+        </div>
+    </header>
+
+    <navbar id="main-navbar">
+        <ul id="main-navbar-items">
+            <li class="main-navbar-item">FIND A CAR</li>
+            <li class="main-navbar-item">HOW TO BUY</li>
+            <li class="main-navbar-item">SELL YOUR CAR</li>
+            <li class="main-navbar-item">FINANCE & INSURANCE</li>
+            <li class="main-navbar-item">CAREERS</li>
+            <li class="main-navbar-item">AUCTIONS & EVENTS</li>
+            <li class="main-navbar-item">SERVICES & INFORMATION</li>
+        </ul>
+    </navbar>
+    <div id="summary-search-homepage">
+        <div id="summary">
+            <img id="summary-image" src="../static/ferrari.jpg" alt="">
+            <h2 id="summary-text-header" class="summary-text">1000's of Quality Cars for Sale</h2>
+            <p  id="summary-text-details" class="summary-text">Turners Cars is the largest used car network in New Zealand with 19 car dealer locations nationwide. 
+                With a huge range of around 3,000 cars for sale (and 1,500 being made ready for sale at any one time) 
+                there is truly something for everyone. We’ve been helping Kiwis buy and sell used cars for over 50 years.
+                And if you want car finance or car insurance, we can sort that out for you as well.
+            </p>
+        </div>
+        
+        <div id="find-form-container">
+            <h3 id="form-title">Find a car!</h3>
+            <form id="find-form">
+                <label for="customsearch">Custom Search</label>
+                <input type="text" name="customsearch">
+                <label for="make-dropdown">Make</label>
+                <select id="make-dropdown" name="make-dropdown">
+                    <option value="bmw">BMW</option>
+                    <option value="lamborghini">Lamborghini</option>
+                    <option value="ferrari">Ferrari</option>
+                    <option value="tesla">Tesla</option>
+                    <option value="bugatti">Bugatti</option>
+                    <option value="rolls-royce">Rolls Royce</option>
+                </select>
+                <label for="model-dropdown">Model</label>
+                <select id="model-option" name="model-dropdown">
+                    <option value="all">All</option>
+                </select>
+                <input type="submit" value="Search">
+
+            </form>
+        </div>
+    </div>
+
+
+    <button id="chat-modal" class="show">Ask for help</button>
+    <div id="chat-container" class="hide">
+        <button id="chat-minimize" ><p>TurnersBot</p> <p>_</p></button>
+        <div id="chat-box" >           
+            <ul id='messages-list' reversed>
+                <li class='bot-message box arrow-left'> Welcome to TurnersCars! Do you need any help?</li>
+            </ul>
+            <form id="message-form" method="POST" action='/' enctype="application/json">
+                <input id="message-input" type="text" name="message" placeholder="Type a message..." autocomplete="off"> 
+                <input id='send-message' type="submit" value="Send">
+            </form>
+    </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        // form submission and message response handling
+        let sendMessage = document.getElementById('send-message')
+        let message = document.getElementById('message-input')
+        let chatContainer = document.getElementById('chat-container')
+
+
+        let messages = []
+        let messagesList = document.getElementById('messages-list')
+
+        //upon sending a message, API is called with fetch to return message response
+        //settimeout is used to mimic messaging a real person
+        sendMessage.addEventListener('click', async (e) => {
+            e.preventDefault()
+            console.log(message.value)
+            messages.push(`${message.value}`)
+            messagesList.innerHTML += `<li class='user-message box arrow-right'>${message.value}</li>`
+            await fetch('http://127.0.0.1:8080/', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({message: message.value.toLowerCase()})
+            })
+            .then(res => res.json())
+            //messages are added to the DOM
+            .then(data => {
+                messages.push(`TurnersBot: ${data}`)
+                setTimeout(() => {                    
+                    messagesList.innerHTML += `<li class='bot-message box arrow-left'> ${data}</li>`
+                    messagesList.scrollTop = messagesList.scrollHeight
+                }, 350)
+                
+                message.value = ''
+                messagesList.scrollTop = messagesList.scrollHeight
+                 
+            })
+
+            .catch(err => console.log(err))
+            console.log(messages)
+        })
+
+        //chat display options
+        let chatModal = document.getElementById('chat-modal')
+        let minimizeChat = document.getElementById('chat-minimize')
+
+        chatModal.addEventListener('click', () => {
+            chatContainer.classList.add('show')
+            chatContainer.classList.remove('hide')
+        })
+
+        minimizeChat.addEventListener('click', () => {
+            chatContainer.classList.add('hide')
+            chatContainer.classList.remove('show')
+
+        })
+
+        
+    </script>
+</body>
+</html>
